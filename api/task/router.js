@@ -40,13 +40,10 @@ router.post('/', async (req, res, next) => {
       project_id
     });
 
-    res.status(201).json(newTask); // ✅ only the task object itself
-  } catch (err) {
-    next(err);
+    res.status(201).json(newTask); 
   }
 });
 
-// Global error handler (in case of uncaught errors)
 router.use((err, req, res, next) => {
   res.status(500).json({
     message: err.message,
